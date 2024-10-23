@@ -23,7 +23,14 @@ func main() {
 		connections[parts[1]] = parts[0]
 	}
 
-	fmt.Println(getValue("a"))
+	// Part 1
+	wireA := getValue("a")
+	fmt.Println("Part 1 - Value of wire 'a' is:", wireA)
+
+	// Part 2
+	connections["b"] = fmt.Sprintf("%d", wireA)
+	valueCache = make(map[string]uint16) // clear value cache
+	fmt.Println("Part 2 - Value of wire 'a' is:", getValue("a"))
 }
 
 // Get the value for a wire, by recursively processing any wires it depends on
